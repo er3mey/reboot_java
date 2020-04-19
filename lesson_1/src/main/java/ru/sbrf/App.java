@@ -1,4 +1,4 @@
-package ru.invitality.sbrf.cu;
+package ru.sbrf;
 
 /**
  * Hello world!
