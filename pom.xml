@@ -15,6 +15,7 @@
 
   <modules>
     <module>lesson_1</module>
+    <module>lesson_3_DiyList</module>
   </modules>
 
   <properties>
