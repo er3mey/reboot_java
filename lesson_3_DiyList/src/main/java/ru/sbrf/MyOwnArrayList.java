@@ -13,9 +13,12 @@ public class MyOwnArrayList<E> implements List<E> {
         elementData = new Object[DEFAULT_CAPACITY];
     }
 
-    private void grow() {
-        int newSize = elementData.length + 1;
-        elementData = Arrays.copyOf(elementData, newSize);
+    private Object[] grow() {
+        if (elementData.length > 0) {
+            return elementData = Arrays.copyOf(elementData, elementData.length + size);
+        } else {
+            return elementData = new Object[size];
+        }
     }
 
     private String outOfBoundsMsg(int index) {
@@ -24,14 +27,14 @@ public class MyOwnArrayList<E> implements List<E> {
 
     public void printList() {
         System.out.print("[");
-        for (int i = 0; i < elementData.length; i++){
-            System.out.print(elementData[i]);
-            if (i != elementData.length-1) System.out.print(", ");
+        for (int i = 0; i < elementData.length; i++) {
+            if (elementData[i] != null) System.out.print(elementData[i]);
+            if (i != elementData.length - 1 && elementData[i+1] != null) System.out.print(", ");
         }
         System.out.println("]");
     }
 
-    E elementData(int index) {
+    private E elementData(int index) {
         return (E) elementData[index];
     }
 
@@ -83,9 +86,10 @@ public class MyOwnArrayList<E> implements List<E> {
     @Override
     public boolean add(E e) {
         if (size == elementData.length) {
-            grow();
+            elementData = grow();
         }
-        elementData[size++] = e;
+        elementData[size] = e;
+        size++;
         return true;
     }
 
