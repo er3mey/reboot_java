@@ -18,6 +18,7 @@
         <module>lesson_3_DiyList</module>
         <module>lesson_5_GC</module>
         <module>lesson_8_ReflectionAnnotation</module>
+        <module>lesson_10_ATM</module>
     </modules>
 
     <properties>
